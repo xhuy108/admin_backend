@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Service
 public class MovieService {
 
@@ -28,6 +30,16 @@ public class MovieService {
         Page<Movie> emps = movieRepository.findAll(pageable);
         log.info("Get all employees pagenable");
         return new PageImpl<>(emps.getContent(), pageable, emps.getTotalElements());
+    }
+
+    public List<Movie> getMovieByTitle(String title) {
+        try {
+            log.info("Get movie with title: " + title);
+            return movieRepository.findAllByTitle(title);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return null;
+        }
     }
 
 }

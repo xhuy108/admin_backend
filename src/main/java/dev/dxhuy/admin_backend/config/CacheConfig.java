@@ -37,6 +37,7 @@ public class CacheConfig {
                 .build();
         return cacheManager;
     }
+
     @Bean
     public RedisTemplate<String, Session> getRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<String, Session> redisTemplate = new RedisTemplate<>();

@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface MovieRepository extends JpaRepository<Movie, Long> {
     @Query(value = "Select * from movies where title = :title", nativeQuery = true)
-    public List<Movie> findAllByFirstName(@Param("title") String title);
+    public List<Movie> findAllByTitle(@Param("title") String title);
 
 }
