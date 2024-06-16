@@ -48,7 +48,7 @@ public class MovieController {
 
     @Cacheable(value = "movies", key = "#title")
     @GetMapping("/title")
-    public List<Movie> getEmployeesByFirstName(@RequestParam String title) {
+    public List<Movie> getMoviesByTitle(@RequestParam String title) {
         if (!cacheHit(title)) {
             System.out.println("Cache miss for Employee with firstName: " + title);
         }
